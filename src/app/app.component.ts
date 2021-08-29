@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +12,14 @@ export class AppComponent {
   accountErrorMessage = '';
   passwordErrorMessage = '';
 
-  accountValueChange(accountControl: FormControl): void {
-    this.account = accountControl.value;
-    this.validationCheck(accountControl.errors, 'account');
+  accountValueChange(account: string, errors: ValidationErrors | null): void {
+    this.account = account;
+    this.validationCheck(errors, 'account');
   }
 
-  passwordValueChange(passwordControl: FormControl): void {
-    this.password = passwordControl.value;
-    this.validationCheck(passwordControl.errors, 'password');
+  passwordValueChange(password: string, errors: ValidationErrors | null): void {
+    this.password = password;
+    this.validationCheck(errors, 'password');
   }
 
   login(): void {

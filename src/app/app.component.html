@@ -9,7 +9,9 @@
       pattern="\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b"
       #accountNgModel="ngModel"
       [ngModel]="account"
-      (ngModelChange)="accountValueChange(accountNgModel.control)"
+      (ngModelChange)="
+        accountValueChange(accountNgModel.value, accountNgModel.errors)
+      "
     />
     <span class="error-message">{{ accountErrorMessage }}</span>
   </p>
@@ -24,7 +26,9 @@
       [minlength]="8"
       [maxlength]="16"
       [ngModel]="password"
-      (ngModelChange)="passwordValueChange(passwordNgModel.control)"
+      (ngModelChange)="
+        passwordValueChange(passwordNgModel.value, passwordNgModel.errors)
+      "
     />
     <span class="error-message">{{ passwordErrorMessage }}</span>
   </p>
