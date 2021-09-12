@@ -1,5 +1,9 @@
 <h1>Reactive Forms 實作 ─ 登入</h1>
-<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="login()">
+<form
+  *ngIf="formGroup"
+  [formGroup]="formGroup"
+  (ngSubmit)="login()"
+>
   <p>
     <label for="account">帳號：</label>
     <input
