@@ -1,0 +1,24 @@
+<h1>Reactive Forms 實作 ─ 登入</h1>
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="login()">
+  <p>
+    <label for="account">帳號：</label>
+    <input
+      type="email"
+      id="account"
+      [formControl]="accountControl"
+    />
+    <span class="error-message">{{ getErrorMessage(accountControl) }}</span>
+  </p>
+  <p>
+    <label for="password">密碼：</label>
+    <input
+      type="password"
+      id="password"
+      [formControl]="passwordControl"
+    />
+    <span class="error-message">{{ getErrorMessage(passwordControl) }}</span>
+  </p>
+  <p>
+    <button type="submit" [disabled]="formGroup.invalid">登入</button>
+  </p>
+</form>

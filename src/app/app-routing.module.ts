@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./template-driven-forms-login/template-driven-forms-login.module').then(m => m.TemplateDrivenFormsLoginModule)
   },
   {
+    path: 'reactive-forms-login',
+    loadChildren: () => import('./reactive-forms-login/reactive-forms-login.module').then(m => m.ReactiveFormsLoginModule)
+  },
+  {
     path: '**',
     redirectTo: 'template-driven-forms-login'
   }
