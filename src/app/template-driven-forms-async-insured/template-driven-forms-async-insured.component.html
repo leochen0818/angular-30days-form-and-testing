@@ -1,0 +1,65 @@
+<h1>Template Driven Forms 實作 ─ 被保險人</h1>
+<form #form="ngForm">
+  <fieldset *ngFor="let insured of insuredList; let index = index; trackBy: trackByIndex">
+    <legend>被保人</legend>
+    <p>
+      <label [for]="'name-' + index">姓名：</label>
+      <input
+        type="text"
+        [name]="'name-' + index"
+        [id]="'name-' + index"
+        required
+        maxlength="10"
+        minlength="2"
+        #nameNgModel="ngModel"
+        [ngModel]="insured.name"
+        (ngModelChange)="insuredNameChange(nameNgModel.value, nameNgModel.errors, insured)"
+      />
+      <span class="error-message">{{ insured.nameErrorMessage }}</span>
+    </p>
+    <p>
+      性別：
+      <input
+        type="radio"
+        [name]="'gender-' + index"
+        [id]="'male-' + index"
+        value="male"
+        required
+        [(ngModel)]="insured.gender"
+      >
+      <label [for]="'male-' + index">男</label>
+      <input
+        type="radio"
+        [name]="'gender-' + index"
+        [id]="'female-' + index"
+        value="female"
+        required
+        [(ngModel)]="insured.gender"
+      >
+      <label [for]="'female-' + index">女</label>
+    </p>
+    <p>
+      <label [for]="'age-' + index">年齡：</label>
+      <select
+        [name]="'age-' + index"
+        [id]="'age-' + index"
+        required
+        #ageNgModel="ngModel"
+        [ngModel]="insured.age"
+        (ngModelChange)="insuredAgeChange(ageNgModel.value, ageNgModel.errors, insured)"
+      >
+        <option value="">請選擇</option>
+        <option value="18">18歲</option>
+        <option value="20">20歲</option>
+        <option value="70">70歲</option>
+        <option value="75">75歲</option>
+      </select>
+      <span class="error-message">{{ insured.ageErrorMessage }}</span>
+    </p>
+    <p><button type="button" (click)="deleteInsured(index)">刪除</button></p>
+  </fieldset>
+  <p>
+    <button type="button" (click)="addInsured()">新增被保險人</button>
+    <button type="submit" [disabled]="insuredList.length === 0 || form.invalid">送出</button>
+  </p>
+</form>

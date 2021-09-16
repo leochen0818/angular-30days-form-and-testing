@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./template-driven-forms-login/template-driven-forms-login.module').then(m => m.TemplateDrivenFormsLoginModule)
   },
   {
+    path: 'template-driven-forms-async-insured',
+    loadChildren: () => import('./template-driven-forms-async-insured/template-driven-forms-async-insured.module').then(m => m.TemplateDrivenFormsAsyncInsuredModule)
+  },
+  {
     path: 'reactive-forms-login',
     loadChildren: () => import('./reactive-forms-login/reactive-forms-login.module').then(m => m.ReactiveFormsLoginModule)
   },
