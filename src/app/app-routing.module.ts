@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./reactive-forms-login/reactive-forms-login.module').then(m => m.ReactiveFormsLoginModule)
   },
   {
+    path: 'reactive-forms-async-insured',
+    loadChildren: () => import('./reactive-forms-async-insured/reactive-forms-async-insured.module').then(m => m.ReactiveFormsAsyncInsuredModule)
+  },
+  {
     path: '**',
     redirectTo: 'template-driven-forms-login'
   }

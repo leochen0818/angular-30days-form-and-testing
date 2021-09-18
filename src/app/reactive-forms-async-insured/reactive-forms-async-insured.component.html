@@ -1,0 +1,49 @@
+<h1>Reactive Forms 實作 ─ 被保險人</h1>
+<form *ngIf="formGroup" [formGroup]="formGroup" (submit)="submit()">
+  <ng-container
+    formArrayName="insuredList"
+    *ngFor="let control of formArray.controls; let index = index"
+  >
+    <fieldset [formGroupName]="index">
+      <legend>被保人</legend>
+      <p>
+        <label [for]="'name-' + index">姓名：</label>
+        <input type="text" [id]="'name-' + index" formControlName="name" />
+        <span class="error-message">{{ getErrorMessage("name", index) }}</span>
+      </p>
+      <p>
+        性別：
+        <input
+          type="radio"
+          [id]="'male-' + index"
+          value="male"
+          formControlName="gender"
+        />
+        <label [for]="'male-' + index">男</label>
+        <input
+          type="radio"
+          [id]="'female-' + index"
+          value="female"
+          formControlName="gender"
+        />
+        <label [for]="'female-' + index">女</label>
+      </p>
+      <p>
+        <label [for]="'age-' + index">年齡：</label>
+        <select name="age" [id]="'age-' + index" formControlName="age">
+          <option value="">請選擇</option>
+          <option value="18">18歲</option>
+          <option value="20">20歲</option>
+          <option value="70">70歲</option>
+          <option value="75">75歲</option>
+        </select>
+        <span class="error-message">{{ getErrorMessage("age", index) }}</span>
+      </p>
+      <p><button type="button" (click)="deleteInsured(index)">刪除</button></p>
+    </fieldset>
+  </ng-container>
+  <p>
+    <button type="button" (click)="addInsured()">新增被保險人</button>
+    <button type="submit" [disabled]="isFormInvalid">送出</button>
+  </p>
+</form>
