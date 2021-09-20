@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ValidationErrors } from '@angular/forms';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { NgForm, NgModel, ValidationErrors } from '@angular/forms';
 
 import { Insured } from './insured.type';
 
@@ -9,6 +9,10 @@ import { Insured } from './insured.type';
   styleUrls: ['./template-driven-forms-async-insured.component.scss']
 })
 export class TemplateDrivenFormsAsyncInsuredComponent {
+  @ViewChildren('nameNgModel') nameNgModelRefList!: QueryList<NgModel>;
+  @ViewChildren('ageNgModel') ageNgModelRefList!: QueryList<NgModel>;
+
+  @ViewChild('form') form!: NgForm;
 
   // 被保險人清單
   insuredList: Insured[] = [];
