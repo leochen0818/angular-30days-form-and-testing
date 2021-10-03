@@ -10,7 +10,7 @@
 describe('Login Form', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:4200');
+    cy.visit('');
   });
 
   it('have title "Template Driven Forms 實作 ─ 登入"', () => {
