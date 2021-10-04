@@ -8,6 +8,13 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
+declare namespace Cypress {
+  interface Chainable {
+    // 這裡面擺放的是自訂 Command 的宣告
+    // 例如：
+    fillWith(account: string, password: string): Chainable<string>
+  }
+}
 //
 // -- This is a parent command --
 Cypress.Commands.add('fillWith', (account, password) => {

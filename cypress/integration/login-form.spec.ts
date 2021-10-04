@@ -5,8 +5,6 @@
 // check out the link below and learn how to write your first test:
 // https://on.cypress.io/writing-first-test
 
-/// <reference types="cypress" />
-
 describe('Login Form', () => {
 
   beforeEach(() => {
@@ -26,7 +24,7 @@ describe('Login Form', () => {
       const account = 'abc@email.com';
       const password = '12345678';
       // Act
-      cy.fillWith(account, password);
+      cy.fillWith(account, password);)
       // Assert
       cy.get('button').should('be.enabled');
     });
