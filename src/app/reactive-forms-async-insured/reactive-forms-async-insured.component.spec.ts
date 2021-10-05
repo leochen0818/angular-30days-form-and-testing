@@ -194,10 +194,14 @@ describe('ReactiveFormsAsyncInsuredComponent', () => {
         ]);
         const genderControl = new FormControl('', Validators.required);
         const ageControl = new FormControl('', Validators.required);
+        const contactInfoTypeControl = new FormControl('', Validators.required);
+        const contactInfoControl = new FormControl('', Validators.required);
         formGroup = new FormGroup({
           name: nameControl,
           gender: genderControl,
-          age: ageControl
+          age: ageControl,
+          contactInfoType: contactInfoTypeControl,
+          contactInfo: contactInfoControl
         });
         component.formArray.push(formGroup);
         fixture.detectChanges();
@@ -456,10 +460,14 @@ describe('ReactiveFormsAsyncInsuredComponent', () => {
           ]);
           const genderControl = new FormControl('', Validators.required);
           const ageControl = new FormControl('', Validators.required);
+          const contactInfoTypeControl = new FormControl('', Validators.required);
+          const contactInfoControl = new FormControl('', Validators.required);
           formGroup = new FormGroup({
             name: nameControl,
             gender: genderControl,
-            age: ageControl
+            age: ageControl,
+            contactInfoType: contactInfoTypeControl,
+            contactInfo: contactInfoControl
           });
           component.formArray.push(formGroup);
           fixture.detectChanges();
@@ -480,6 +488,8 @@ describe('ReactiveFormsAsyncInsuredComponent', () => {
             name: 'Leo',
             gender: 'male',
             age: '18',
+            contactInfoType: 'email',
+            contactInfo: 'abc@email.com'
           });
           // Act
           fixture.detectChanges();

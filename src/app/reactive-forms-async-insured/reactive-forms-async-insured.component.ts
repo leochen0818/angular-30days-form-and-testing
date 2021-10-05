@@ -106,6 +106,10 @@ export class ReactiveFormsAsyncInsuredComponent implements OnInit {
       errorMessage = '姓名至少需兩個字以上';
     } else if (formControl.errors.maxlength) {
       errorMessage = '姓名至多只能輸入十個字';
+    } else if (formControl.errors.pattern) {
+      errorMessage = '手機號碼格式錯誤';
+    } else if (formControl.errors.email) {
+      errorMessage = 'E-mail 格式錯誤';
     }
     return errorMessage!;
   }
@@ -118,13 +122,32 @@ export class ReactiveFormsAsyncInsuredComponent implements OnInit {
    * @memberof ReactiveFormsAsyncInsuredComponent
    */
   private createInsuredFormGroup(): FormGroup {
+    const contactInfoTypeControl = this.formBuilder.control('', Validators.required);
+    const contactInfoControl = this.formBuilder.control('', Validators.required);
+    contactInfoTypeControl.valueChanges.subscribe((value) => {
+      switch (value) {
+        case 'mobile':
+          contactInfoControl.setValidators([Validators.required, Validators.pattern(/$09\d{8}^/)]);
+          break;
+        case 'email':
+          contactInfoControl.setValidators([Validators.required, Validators.email]);
+          break;
+        default:
+          contactInfoControl.setValidators([Validators.required]);
+          break;
+      }
+      contactInfoControl.updateValueAndValidity();
+    });
+
     return this.formBuilder.group({
       name: [
         '',
         [Validators.required, Validators.minLength(2), Validators.maxLength(10)]
       ],
       gender: ['', Validators.required],
-      age: ['', Validators.required]
+      age: ['', Validators.required],
+      contactInfoType: contactInfoTypeControl,
+      contactInfo: contactInfoControl
     });
   }
 }
