@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./reactive-forms-async-insured/reactive-forms-async-insured.module').then(m => m.ReactiveFormsAsyncInsuredModule)
   },
   {
+    path: 'reactive-forms-auto-complete-searching',
+    loadChildren: () => import('./reactive-forms-auto-complete-searching/reactive-forms-auto-complete-searching.module').then(m => m.ReactiveFormsAutoCompleteSearchingModule)
+  },
+  {
     path: '**',
     redirectTo: 'template-driven-forms-login'
   }

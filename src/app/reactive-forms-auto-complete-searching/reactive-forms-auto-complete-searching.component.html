@@ -1,0 +1,31 @@
+<h1>Reactive Forms 進階技巧 ─ Auto-Complete Searching</h1>
+<p><input type="text" placeholder="請輸入捷運站名稱" [formControl]="searchingInputControl" /></p>
+<table>
+  <caption>
+    台北捷運之捷運站查詢結果
+  </caption>
+  <thead>
+    <tr>
+      <td>車站代號</td>
+      <td>車站名稱</td>
+      <td>車站所屬縣市</td>
+      <td>車站所屬鄉鎮區</td>
+      <td>假日是否允許自行車進出站</td>
+      <td>位置</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let station of (stations$ | async) || []">
+      <td>{{ station.StationID }}</td>
+      <td>{{ station.StationName.Zh_tw }}</td>
+      <td>{{ station.LocationCity }}</td>
+      <td>{{ station.LocationTown }}</td>
+      <td>{{ station.BikeAllowOnHoliday | booleanInZhTw }}</td>
+      <td>
+        <a target="_blank" [href]="station.StationPosition | googleMapLink">
+          {{ station.StationPosition | locationString }}
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
