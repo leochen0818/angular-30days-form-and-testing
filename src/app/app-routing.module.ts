@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./reactive-forms-auto-complete-searching/reactive-forms-auto-complete-searching.module').then(m => m.ReactiveFormsAutoCompleteSearchingModule)
   },
   {
+    path: 'reactive-forms-date-range',
+    loadChildren: () => import('./reactive-forms-date-range/reactive-forms-date-range.module').then(m => m.ReactiveFormsDateRangeModule)
+  },
+  {
     path: '**',
     redirectTo: 'template-driven-forms-login'
   }
