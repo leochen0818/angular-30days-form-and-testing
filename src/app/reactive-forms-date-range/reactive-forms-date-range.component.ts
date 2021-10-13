@@ -1,7 +1,5 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-
-import { dateRangeValidator } from './date-range-validator.util';
 
 @Component({
   selector: 'app-reactive-forms-date-range',
@@ -15,10 +13,18 @@ export class ReactiveFormsDateRangeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    const date = new Date();
     this.formGroup = this.formBuilder.group({
-      startDate: ['', [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]],
-      endDate: ['', Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]
-    }, { validators: dateRangeValidator });
+      dateRange: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    });
+  }
+
+  enable(): void {
+    this.formGroup?.enable();
+  }
+
+  disable(): void {
+    this.formGroup?.disable();
   }
 
 }

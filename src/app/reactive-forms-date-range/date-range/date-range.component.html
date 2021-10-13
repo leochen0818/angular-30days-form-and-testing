@@ -1,0 +1,32 @@
+<div *ngIf="formGroup" [formGroup]="formGroup">
+  <p>
+    <label for="start-date">起日：</label>
+    <input
+      type="text"
+      id="start-date"
+      placeholder="yyyy-mm-dd"
+      formControlName="startDate"
+    />
+    <span
+      class="error-message"
+      *ngIf="formGroup.errors && formGroup.dirty"
+    >
+      {{ formGroup.errors.dateRange.startDate | errorMessage }}
+    </span>
+  </p>
+  <p>
+    <label for="end-date">迄日：</label>
+    <input
+      type="text"
+      id="end-date"
+      placeholder="yyyy-mm-dd"
+      formControlName="endDate"
+    />
+    <span
+      class="error-message"
+      *ngIf="formGroup.errors && formGroup.dirty"
+    >
+      {{ formGroup.errors.dateRange.endDate | errorMessage }}
+    </span>
+  </p>
+</div>

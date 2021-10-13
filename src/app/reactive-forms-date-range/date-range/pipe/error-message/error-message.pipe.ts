@@ -7,7 +7,7 @@ import {
   InexistentDateError,
   LessThanStartDateError,
   GreaterThanStartDateError,
-} from './date-range.type';
+} from '../../date-range.type';
 
 @Pipe({
   name: 'errorMessage',

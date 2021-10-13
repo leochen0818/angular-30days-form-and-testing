@@ -4,19 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ReactiveFormsDateRangeRoutingModule } from './reactive-forms-date-range-routing.module';
 import { ReactiveFormsDateRangeComponent } from './reactive-forms-date-range.component';
-import { ErrorMessagePipe } from './error-message.pipe';
-
+import { DateRangeModule } from './date-range/date-range.module';
 
 @NgModule({
-  declarations: [
-    ReactiveFormsDateRangeComponent,
-    ErrorMessagePipe
-  ],
+  declarations: [ReactiveFormsDateRangeComponent],
   imports: [
     CommonModule,
     ReactiveFormsDateRangeRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DateRangeModule
   ]
 })
 export class ReactiveFormsDateRangeModule { }

@@ -1,33 +1,9 @@
-<h1>Reactive Forms 進階技巧 ─ 跨欄位驗證</h1>
+<h1>Reactive Forms 進階技巧 ─ 跨欄位驗證與自訂表單元件</h1>
 <form *ngIf="formGroup" [formGroup]="formGroup">
+  <app-date-range formControlName="dateRange"></app-date-range>
   <p>
-    <label for="start-date">起日：</label>
-    <input
-      type="text"
-      id="start-date"
-      placeholder="yyyy-mm-dd"
-      formControlName="startDate"
-    />
-    <span
-      class="error-message"
-      *ngIf="formGroup.errors && formGroup.dirty"
-    >
-      {{ formGroup.errors.dateRange.startDate | errorMessage }}
-    </span>
-  </p>
-  <p>
-    <label for="end-date">迄日：</label>
-    <input
-      type="text"
-      id="end-date"
-      placeholder="yyyy-mm-dd"
-      formControlName="endDate"
-    />
-    <span
-      class="error-message"
-      *ngIf="formGroup.errors && formGroup.dirty"
-    >
-      {{ formGroup.errors.dateRange.endDate | errorMessage }}
-    </span>
+    <button type="button" [disabled]="formGroup.disabled" (click)="disable()">DISABLE</button>
+    <button type="button" [disabled]="formGroup.enabled" (click)="enable()">ENABLE</button>
   </p>
 </form>
+<pre>{{ formGroup?.getRawValue() | json }}</pre>
