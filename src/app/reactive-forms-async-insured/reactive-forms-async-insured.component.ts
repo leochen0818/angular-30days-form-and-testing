@@ -55,6 +55,7 @@ export class ReactiveFormsAsyncInsuredComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       insuredList: this.formBuilder.array([])
     });
+    this.addInsured();
   }
 
   /**
@@ -139,6 +140,12 @@ export class ReactiveFormsAsyncInsuredComponent implements OnInit {
       contactInfoControl.updateValueAndValidity();
     });
 
+    const addressInfoFormGroup = this.formBuilder.group({
+      city: '',
+      district: '',
+      zip: '',
+      address: ''
+    });
     return this.formBuilder.group({
       name: [
         '',
@@ -147,7 +154,8 @@ export class ReactiveFormsAsyncInsuredComponent implements OnInit {
       gender: ['', Validators.required],
       age: ['', Validators.required],
       contactInfoType: contactInfoTypeControl,
-      contactInfo: contactInfoControl
+      contactInfo: contactInfoControl,
+      addressInfo: addressInfoFormGroup
     });
   }
 }

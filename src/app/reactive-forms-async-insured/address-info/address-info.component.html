@@ -1,0 +1,14 @@
+<ng-container [formGroup]="formGroup">
+  <p>
+    <select formControlName="city">
+      <option value="">請選擇縣市</option>
+    </select>
+    <select formControlName="district">
+      <option value="">請選擇鄉鎮市區</option>
+    </select>
+  </p>
+  <p>
+    <input type="text" style="width: 4rem" placeholder="郵遞區號" formControlName="zip">
+    <input type="text" placeholder="請輸入地址" formControlName="address">
+  </p>
+</ng-container>

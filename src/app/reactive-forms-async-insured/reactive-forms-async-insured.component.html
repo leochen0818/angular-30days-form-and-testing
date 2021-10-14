@@ -51,6 +51,8 @@
         <input type="text" formControlName="contactInfo">
         <span class="error-message">{{ getErrorMessage("contactInfo", index) }}</span>
       </p>
+      <p><label>聯絡地址：</label></p>
+      <app-address-info formGroupName="addressInfo"></app-address-info>
       <p><button type="button" (click)="deleteInsured(index)">刪除</button></p>
     </fieldset>
   </ng-container>

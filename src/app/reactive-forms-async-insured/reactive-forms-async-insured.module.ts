@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsAsyncInsuredRoutingModule } from './reactive-forms-async-insured-routing.module';
 import { ReactiveFormsAsyncInsuredComponent } from './reactive-forms-async-insured.component';
-
+import { AddressInfoModule } from './address-info/address-info.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import { ReactiveFormsAsyncInsuredComponent } from './reactive-forms-async-insur
     CommonModule,
     ReactiveFormsAsyncInsuredRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AddressInfoModule
   ]
 })
 export class ReactiveFormsAsyncInsuredModule { }
