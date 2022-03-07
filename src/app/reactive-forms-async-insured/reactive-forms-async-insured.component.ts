@@ -127,7 +127,7 @@ export class ReactiveFormsAsyncInsuredComponent implements OnInit {
     contactInfoTypeControl.valueChanges.subscribe((value) => {
       switch (value) {
         case 'mobile':
-          contactInfoControl.setValidators([Validators.required, Validators.pattern(/$09\d{8}^/)]);
+          contactInfoControl.setValidators([Validators.required, Validators.pattern(/^09\d{8}$/)]);
           break;
         case 'email':
           contactInfoControl.setValidators([Validators.required, Validators.email]);
